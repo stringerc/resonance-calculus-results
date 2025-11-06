@@ -74,6 +74,12 @@ This repository provides empirical validation and performance results for **Reso
 
 See [`CITATION.md`](CITATION.md) for detailed citation information in various formats (BibTeX, APA, etc.).
 
+### 🔍 Verification
+
+- ✅ **Local verification:** Run `./verify-zenodo-connection.sh` to check all files
+- 📋 **Verification checklist:** See [`VERIFICATION_CHECKLIST.md`](VERIFICATION_CHECKLIST.md)
+- 🚀 **Quick guide:** See [`QUICK_VERIFY.md`](QUICK_VERIFY.md) for completing Zenodo connection
+
 ---
 
 **Generated:** November 6, 2025  
