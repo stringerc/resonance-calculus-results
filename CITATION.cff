@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Stringer"
+    given-names: "C.A."
+title: "Resonance Calculus Performance Results - Production Deployment Analysis"
+version: 1.0.0
+date-released: 2025-11-06
+doi: 10.5281/zenodo.17543858
+url: https://zenodo.org/records/17543858
+repository-code: https://github.com/stringerc/resonance-calculus-results
+abstract: "Comprehensive performance analysis and results from the Resonance Calculus implementation, demonstrating 15% improvement in p99.9 latency with 75+ hours of continuous monitoring showing zero safety interventions required."
+keywords:
+  - "Resonance Calculus"
+  - "Resonance Algebra"
+  - "Performance Optimization"
+  - "Latency Reduction"
+  - "Production Deployment"
+  - "Canary Deployment"
+license: MIT
+

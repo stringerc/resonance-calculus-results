@@ -62,8 +62,19 @@ The enhanced HTML report includes:
 
 For the full implementation code and additional documentation, see the main repository.
 
+## 📚 Citation & Academic Reference
+
+This repository provides empirical validation and performance results for **Resonance Calculus and Resonance Algebra**.
+
+**Cite this work:**
+- **Zenodo DOI:** [10.5281/zenodo.17543858](https://zenodo.org/records/17543858)
+- **GitHub Repository:** https://github.com/stringerc/resonance-calculus-results
+
+See [`CITATION.md`](CITATION.md) for detailed citation information in various formats (BibTeX, APA, etc.).
+
 ---
 
 **Generated:** November 6, 2025  
-**Status:** ✅ Complete and Ready for Review
+**Status:** ✅ Complete and Ready for Review  
+**Academic Reference:** [Zenodo Record](https://zenodo.org/records/17543858)
 
