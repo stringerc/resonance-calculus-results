@@ -1,0 +1,36 @@
+{
+  "title": "Resonance Calculus Performance Results - Production Deployment Analysis",
+  "description": "Comprehensive performance analysis and results from the Resonance Calculus implementation, demonstrating 15% improvement in p99.9 latency with 75+ hours of continuous monitoring showing zero safety interventions required. This repository provides empirical validation for Resonance Calculus and Resonance Algebra.",
+  "creators": [
+    {
+      "name": "Stringer, C.A.",
+      "affiliation": ""
+    }
+  ],
+  "keywords": [
+    "Resonance Calculus",
+    "Resonance Algebra",
+    "Performance Optimization",
+    "Latency Reduction",
+    "Production Deployment",
+    "Canary Deployment",
+    "System Performance",
+    "Empirical Validation"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "10.5281/zenodo.17543858",
+      "scheme": "doi"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "resonance-calculus"
+    }
+  ],
+  "license": {
+    "id": "MIT"
+  }
+}
+

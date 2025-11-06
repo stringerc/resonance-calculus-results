@@ -1,5 +1,7 @@
 # Resonance Calculus Performance Results
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17543858.svg)](https://zenodo.org/records/17543858)
+
 This repository contains comprehensive performance analysis and results from the Resonance Calculus implementation.
 
 ## 📊 Contents
