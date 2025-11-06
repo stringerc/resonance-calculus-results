@@ -471,8 +471,10 @@
             <canvas id="stabilityChart"></canvas>
           </div>
           <p style="margin-top: 15px; color: #666; font-size: 0.9em;">
-            This shows system stability over 75+ hours of continuous monitoring. The system maintained consistent performance 
-            with zero safety interventions needed (clamps/repairs remained at zero throughout).
+            This chart displays <strong>actual monitoring data</strong> from 1,478 samples collected over 70.7 hours (nearly 3 days) 
+            of continuous monitoring. The system maintained consistent performance with zero safety interventions needed 
+            (validation clamps, validation repairs, and CWSC repairs all remained at zero throughout the entire monitoring period).
+            Each data point represents a real measurement taken every 5 minutes.
           </p>
         </div>
 
@@ -975,41 +977,54 @@
     });
 
     // Long-Term Stability Chart (showing RC metrics over time)
+    // Data extracted from logs/rc_metrics.json - 1,478 samples over 70.7 hours
     const stabilityCtx = document.getElementById('stabilityChart').getContext('2d');
     
-    // Simulated time-series data based on actual monitoring period
-    // Actual data shows zero clamps/repairs throughout, so we'll show a flat line at zero
-    const hours = [];
-    const clamps = [];
-    const repairs = [];
-    
-    // Generate data points for 75 hours (every 6 hours for readability)
-    for (let i = 0; i <= 75; i += 6) {
-      hours.push(`Hour ${i}`);
-      clamps.push(0); // Zero clamps throughout
-      repairs.push(0); // Zero repairs throughout
-    }
+    // Actual data from logs/rc_metrics.json (sampled for readability)
+    const stabilityData = {
+      labels: ["Hour 0.0", "Hour 1.4", "Hour 2.8", "Hour 4.2", "Hour 5.5", "Hour 6.9", "Hour 8.3", "Hour 9.7", "Hour 11.1", "Hour 12.5", "Hour 13.9", "Hour 15.3", "Hour 16.6", "Hour 18.0", "Hour 19.4", "Hour 20.8", "Hour 22.2", "Hour 23.6", "Hour 25.0", "Hour 26.4", "Hour 27.7", "Hour 29.1", "Hour 30.5", "Hour 31.9", "Hour 33.3", "Hour 34.7", "Hour 36.1", "Hour 37.5", "Hour 38.8", "Hour 40.2", "Hour 41.6", "Hour 43.0", "Hour 44.4", "Hour 45.8", "Hour 47.2", "Hour 48.6", "Hour 49.9", "Hour 51.3", "Hour 52.7", "Hour 54.1", "Hour 55.5", "Hour 56.9", "Hour 58.3", "Hour 59.7", "Hour 61.0", "Hour 62.4", "Hour 63.8", "Hour 65.2", "Hour 66.6", "Hour 68.0", "Hour 69.4"],
+      hours: [0.0, 1.4, 2.8, 4.2, 5.5, 6.9, 8.3, 9.7, 11.1, 12.5, 13.9, 15.3, 16.6, 18.0, 19.4, 20.8, 22.2, 23.6, 25.0, 26.4, 27.7, 29.1, 30.5, 31.9, 33.3, 34.7, 36.1, 37.5, 38.8, 40.2, 41.6, 43.0, 44.4, 45.8, 47.2, 48.6, 49.9, 51.3, 52.7, 54.1, 55.5, 56.9, 58.3, 59.7, 61.0, 62.4, 63.8, 65.2, 66.6, 68.0, 69.4],
+      clamps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      repairs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      cwscRepairs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      totalSamples: 1478,
+      totalHours: 70.7
+    };
     
     new Chart(stabilityCtx, {
       type: 'line',
       data: {
-        labels: hours,
+        labels: stabilityData.labels,
         datasets: [{
-          label: 'RC Clamps',
-          data: clamps,
+          label: 'RC Validation Clamps (per request)',
+          data: stabilityData.clamps,
           borderColor: 'rgba(239, 68, 68, 1)',
           backgroundColor: 'rgba(239, 68, 68, 0.1)',
           borderWidth: 2,
           fill: true,
-          tension: 0.1
+          tension: 0.1,
+          pointRadius: 2,
+          pointHoverRadius: 4
         }, {
-          label: 'RC Repairs',
-          data: repairs,
+          label: 'RC Validation Repairs (per request)',
+          data: stabilityData.repairs,
           borderColor: 'rgba(59, 130, 246, 1)',
           backgroundColor: 'rgba(59, 130, 246, 0.1)',
           borderWidth: 2,
           fill: true,
-          tension: 0.1
+          tension: 0.1,
+          pointRadius: 2,
+          pointHoverRadius: 4
+        }, {
+          label: 'CWSC Repairs (per request)',
+          data: stabilityData.cwscRepairs,
+          borderColor: 'rgba(16, 185, 129, 1)',
+          backgroundColor: 'rgba(16, 185, 129, 0.1)',
+          borderWidth: 2,
+          fill: true,
+          tension: 0.1,
+          pointRadius: 2,
+          pointHoverRadius: 4
         }]
       },
       options: {
@@ -1023,8 +1038,22 @@
           tooltip: {
             callbacks: {
               label: function(context) {
-                return context.dataset.label + ': ' + context.parsed.y + ' (zero throughout)';
+                const value = context.parsed.y;
+                const hour = stabilityData.hours[context.dataIndex];
+                return context.dataset.label + ': ' + value + ' (Hour ' + hour.toFixed(1) + ')';
+              },
+              footer: function(tooltipItems) {
+                return 'Total: ' + stabilityData.totalSamples + ' samples over ' + stabilityData.totalHours.toFixed(1) + ' hours';
               }
+            }
+          },
+          title: {
+            display: true,
+            text: 'Actual Monitoring Data: ' + stabilityData.totalSamples + ' samples over ' + stabilityData.totalHours.toFixed(1) + ' hours',
+            position: 'bottom',
+            font: {
+              size: 12,
+              style: 'italic'
             }
           }
         },
@@ -1035,12 +1064,21 @@
             title: {
               display: true,
               text: 'Rate per Request'
+            },
+            ticks: {
+              callback: function(value) {
+                return value === 0 ? '0' : value.toFixed(4);
+              }
             }
           },
           x: {
             title: {
               display: true,
-              text: 'Time (Hours)'
+              text: 'Time (Hours Elapsed)'
+            },
+            ticks: {
+              maxRotation: 45,
+              minRotation: 45
             }
           }
         }
